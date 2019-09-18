@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
-/* Printing something on the screen with PUTS */
+/**
+ * main - Printing something on the screen with PUTS
+ * Return: 0
+ */
 int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
