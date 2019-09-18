@@ -3,7 +3,7 @@
 
 /**
  * main - Printing something on the screen with PUTS
- * Return: 0
+ * Return: Always 0 (Sucess)
  */
 int main(void)
 {
