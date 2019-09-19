@@ -8,7 +8,7 @@
 int main(void)
 {
 	int init_alphabet = 97;
-	int upper_alphabet = 65; 
+	int upper_alphabet = 65;
 
 	while (init_alphabet <= 122)
 	{
