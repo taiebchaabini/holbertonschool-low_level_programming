@@ -13,14 +13,13 @@ int main(void)
 
 	while (n <= 99)
 	{
-	putchar( n / 10 + '0');
-	putchar( n % 10 + '0');
+	putchar(n / 10 + '0');
+	putchar(n % 10 + '0');
 	if (n < 99)
 	{
 	putchar(',');
 	putchar(' ');
 	}
-	
 	n++;
 	}
 	putchar('\n');
