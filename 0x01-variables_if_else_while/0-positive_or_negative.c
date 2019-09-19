@@ -4,7 +4,7 @@
 
 /**
  * main - This program will print a random number each time it is executed.
- * return: Always 0 (Success)
+ * Return: 0 (Success)
  **/
 int main(void)
 {
