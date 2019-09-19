@@ -9,10 +9,10 @@ int main(void)
 {
 	int init_alphabet = 97;
 
-	while (init_alphabet < 122)
+	while (init_alphabet <= 122)
 	{
-		putchar(init_alphabet);
-		init_alphabet++;
+	putchar(init_alphabet);
+	init_alphabet++;
 	}
 	putchar('\n');
 	return (0);
