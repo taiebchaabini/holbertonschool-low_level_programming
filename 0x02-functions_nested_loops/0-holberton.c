@@ -1,5 +1,10 @@
 #include "holberton.h"
 
+/**
+  * main - Display Holberton with _putchar function
+  * Return: void
+**/
+
 int main(void)
 {
 	_putchar('H');
@@ -12,5 +17,4 @@ int main(void)
 	_putchar('o');
 	_putchar('n');
 	_putchar('\n');
-	return 0;
 }
