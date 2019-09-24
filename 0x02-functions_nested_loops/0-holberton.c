@@ -7,14 +7,13 @@
 
 int main(void)
 {
-	_putchar('H');
-	_putchar('o');
-	_putchar('l');
-	_putchar('b');
-	_putchar('e');
-	_putchar('r');
-	_putchar('t');
-	_putchar('o');
-	_putchar('n');
+	unsigned int a;
+	unsigned char text[] = "Holberton";
+
+	for (a = 0; a < *(&text + 1) - text; a++)
+	{
+	_putchar(text[a]);
+	}
 	_putchar('\n');
+	return (0);
 }
