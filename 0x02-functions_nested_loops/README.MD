@@ -5,4 +5,6 @@ What is the difference between a declaration and a definition of a function
 What is a prototype
 Scope of variables
 What are the gcc flags -Wall -Werror -pedantic -Wextra
-What are header files and how to to use them with #include
+What are header files and how to to use them with
+
+
