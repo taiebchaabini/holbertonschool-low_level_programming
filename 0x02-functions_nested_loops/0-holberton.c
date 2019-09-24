@@ -7,10 +7,10 @@
 
 int main(void)
 {
-	unsigned int a;
-	unsigned char text[] = "Holberton";
+	int a;
+	char text[] = "Holberton";
 
-	for (a = 0; a < *(&text + 1) - text; a++)
+	for (a = 0; a < 9; a++)
 	{
 	_putchar(text[a]);
 	}
