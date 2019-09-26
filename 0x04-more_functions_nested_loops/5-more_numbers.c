@@ -7,7 +7,10 @@ void more_numbers(void)
 {
 	char a;
 	char b;
+	int i;
 
+	while (i < 10)
+	{
 	for (a = '0'; a <= '9'; a++)
 	{
 		_putchar(a);
@@ -18,4 +21,6 @@ void more_numbers(void)
 		_putchar(b);
 	}
 	_putchar('\n');
+	i++;
+	}
 }
