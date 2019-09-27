@@ -2,7 +2,7 @@
 
 /**
   * main - Display Holberton with _putchar function
-  * Return: void
+  * Return: Always return 0
 **/
 
 int main(void)
