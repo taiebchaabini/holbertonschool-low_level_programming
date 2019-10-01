@@ -2,14 +2,16 @@
 #include <stdio.h>
 
 /**
-* reset_to_98 - Function that takes a pointer to an int as
+* swap_int - Function that swap two numbers
 * parameter and updates the value it points to to 98.
-* @n: pointer to int
+* @a: pointer to int
+* @b: pointer to int
 **/
 
 void swap_int(int *a, int *b)
 {
 	int c;
+	
 	c = *a;
 	*a = *b;
 	*b = c;
