@@ -2,8 +2,10 @@
 #include <stdio.h>
 
 /**
-* print_array - function that prints n elements of an array of integers, followed by a new line.
-* @str: pointer to char
+* print_array - function that prints n elements
+* of an array of integers, followed by a new line.
+* @a: pointer to char
+* @n: type int
 **/
 
 void print_array(int *a, int n)
