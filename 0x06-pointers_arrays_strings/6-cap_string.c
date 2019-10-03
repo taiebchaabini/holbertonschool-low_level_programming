@@ -11,6 +11,7 @@ char *cap_string(char *a)
 	int i = 0;
 	int b = 0;
 	int last = 0;
+	char *p = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	while (a[i] != '\0')
 	{
@@ -28,9 +29,9 @@ char *cap_string(char *a)
 		{
 			b = 25 - (122 - a[i]);
 			if (b == 0)
-			a[i] = 65;
+			a[i] = p[0];
 			else
-			a[i] = 65 + b;
+			a[i] = p[b];
 		}
 		}
 			i++;
