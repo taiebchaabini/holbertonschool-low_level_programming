@@ -20,11 +20,9 @@ char *cap_string(char *a)
 		a[i] = ' ';
 		}
 		if (last == ' ' || last == '\t' || last == '\n'
-				|| last == ',' || last == ';' || last == '.'
-				|| last == '!' ||last == '?' || last == '"'
-				|| last == '(' || last == ')' || last == '{'
-				|| last == '}'
-				)
+				|| last == ',' || last == ';' || last == '.' || last == '!'
+				|| last == '?' || last == '"' || last == '(' || last == ')'
+				|| last == '{' || last == '}')
 		{
 		if (a[i] >= 97 && a[i] <= 122)
 		{
