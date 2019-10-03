@@ -21,6 +21,4 @@ void reverse_array(int *a, int n)
 		a[n] = temp;
 		n--;
 	}
-	for (i = i; i < n; i++)
-		a[i] = '\0';
 }
