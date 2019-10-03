@@ -25,7 +25,7 @@ char *cap_string(char *a)
 				|| last == '?' || last == '"' || last == '(' || last == ')'
 				|| last == '{' || last == '}')
 		{
-		if (a[i] >= 97 && a[i] <= 122)
+		if ( (a[i] >= 97 && a[i] <= 122) || (i == 0 && a[i] >= 97 && a[i] <= 122) )
 		{
 			b = 25 - (122 - a[i]);
 			if (b == 0)
