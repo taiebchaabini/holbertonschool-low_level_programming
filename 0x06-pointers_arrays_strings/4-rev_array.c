@@ -11,7 +11,7 @@ void reverse_array(int *a, int n)
 {
 	int i;
 	char temp;
-	
+
 	i = 0;
 	for (i = 0; i < n / 2; i++)
 	{
@@ -19,4 +19,6 @@ void reverse_array(int *a, int n)
 		*(a + i) = *(a + ((n  - 1) - i));
 		*(a + ((n - 1) - i)) = temp;
 	}
+	for (; i < n; i++)
+		*(a + i) = '\0';
 }
