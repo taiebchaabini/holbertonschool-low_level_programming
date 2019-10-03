@@ -16,7 +16,7 @@ char *cap_string(char *a)
 	while (a[i] != '\0')
 	{
 		last = a[i - 1];
-		if (a[i] == 9 && a[i] != ' ')
+		if (a[i] == 9)
 		{
 		a[i] = ' ';
 		}
