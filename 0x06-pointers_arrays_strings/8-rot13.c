@@ -9,21 +9,14 @@
 char *rot13(char *a)
 {
 	int i = 0;
-	int b = 0;
-	char lower[] = "abcdefghijklmnopqrstuvwxyz";
-	char upper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	while (a[i] != '\0')
 	{
-		b = 0;
-		while (lower[b] != '\0' || upper[b] != '\0')
-		{
-			if ((a[i] == lower[b] && lower[b] - 'a' < 26) || (a[i] == upper[b] && upper[b] - 'A' < 26))
+			if ((a[i] > 'a' && a[i] < 'N') || (a[i] > 'A' && a[i] < 'N'))
+			a[i] += 13;
+			else if ((a[i] > 'm' && a[i] < 'z') || (a[i] > 'M' && a[i] < 'Z'))
 			a[i] -= 13;
-			b++;
-		}
 			i++;
 	}
-
 	return (a);
 }
