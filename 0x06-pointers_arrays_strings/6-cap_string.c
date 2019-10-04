@@ -13,10 +13,11 @@ char *cap_string(char *a)
 
 	while (a[i] != '\0')
 	{
+		b = 25 - (122 - a[i]);
 		if (i == 0)
 		{
-		b = 25 - (122 - a[i]);
-		a[i] = 65 + b;
+			if ((a[i] >= 97 && a[i] <= 122))
+			a[i] = 65 + b;
 		}
 		last = a[i - 1];
 		if (last == ' ' || last == '\t' || last == '\n' || last == ','
@@ -26,7 +27,6 @@ char *cap_string(char *a)
 		{
 		if ((a[i] >= 97 && a[i] <= 122))
 		{
-			b = 25 - (122 - a[i]);
 			a[i] = 65 + b;
 		}
 		}
