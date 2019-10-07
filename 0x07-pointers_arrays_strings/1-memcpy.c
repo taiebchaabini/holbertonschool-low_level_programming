@@ -5,6 +5,7 @@
 * @dest: pointer to char - destination
 * @src: pointer to char - from
 * @n: type unsigned int - delimiter
+* Return: @dest from @src
 **/
 
 char *_memcpy(char *dest, char *src, unsigned int n)
