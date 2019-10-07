@@ -20,9 +20,9 @@ char *_strchr(char *s, char c)
 			s++;
 			b = 1;
 		}
+		if (s[i] == '\0' && b == 0)
+			return (0);
 		i++;
 	}
-	if (b == 0)
-		return (0);
 	return (s);
 }
