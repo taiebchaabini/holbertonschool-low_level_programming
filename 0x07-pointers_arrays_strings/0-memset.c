@@ -4,7 +4,7 @@
 * _memset - function that fills memory with a constant byte.
 * @s: pointer to char getting buffer table
 * @b: type char - new adress
-* @n: type unsigned int - space needed
+* @n: type unsigned int - delimiter
 **/
 
 char *_memset(char *s, char b, unsigned int n)
