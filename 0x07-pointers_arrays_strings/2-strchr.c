@@ -13,6 +13,8 @@ char *_strchr(char *s, char c)
 	int i = 0;
 	int b = 0;
 
+	if (c == '\0')
+		return (0);
 	while (s[i] != '\0')
 	{
 		if (s[i] == c || b == 1)
@@ -22,8 +24,6 @@ char *_strchr(char *s, char c)
 		}
 		i++;
 	}
-	for (; i < s[i]; i++)
-		s[i] = '\0';
 	
 	if (b == 0)
 		return (0);
