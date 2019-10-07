@@ -5,6 +5,7 @@
 * @s: pointer to char getting buffer table
 * @b: type char - new adress
 * @n: type unsigned int - delimiter
+* Return: @s filled from b
 **/
 
 char *_memset(char *s, char b, unsigned int n)
