@@ -22,6 +22,9 @@ char *_strchr(char *s, char c)
 		}
 		i++;
 	}
+	for (; i < s[i]; i++)
+		s[i] = '\0';
+	
 	if (b == 0)
 		return (0);
 	return (s);
