@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
-* main - a function that prints its name follow by a new line
+* main - function that prints all arguments it receives.
 * @argc: count number of argument passed to the function size @argv
 * @argv: array of arguments passed size of @argc
 * Return: always return 0
