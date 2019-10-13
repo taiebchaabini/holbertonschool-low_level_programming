@@ -11,8 +11,7 @@ int main(int argc, char **argv)
 	int b = 0, amount = 0, result = 0;
 	int coin1 = 25, coin2 = 10, coin3 = 5, coin4 = 2, coin5 = 1;
 
-	argc = argc - 1;
-	if (argc != 1)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
