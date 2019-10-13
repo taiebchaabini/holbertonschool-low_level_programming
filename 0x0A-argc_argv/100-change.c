@@ -29,8 +29,6 @@ int main(int argc, char **argv)
 			}
 		}
 		cents = atoi(argv[1]);
-		if (cents <= 0)
-			printf("%d\n", 0);
 		result = cents / coin1;
 		cents %= coin1;
 		result += cents / coin2;
