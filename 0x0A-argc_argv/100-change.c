@@ -8,7 +8,8 @@
 **/
 int main(int argc, char **argv)
 {
-	int i = 0, b = 0, result = 0, c = 0;
+	int b = 0, amount = 0, result = 0;
+	int coin1 = 25, coin2 = 10, coin3 = 5, coin4 = 2, coin5 = 1;
 
 	argc = argc - 1;
 	if (argc != 1)
@@ -20,31 +21,25 @@ int main(int argc, char **argv)
 	{
 		for (b = b; argv[1][b] != '\0'; b++)
 		{
-			if (argv[1][b] >= 48 && argv[1][b] <= 57)
-			{
-				i++;
-				if (argv[1][b] == 48)
-					c = 1;
-			}
-			else
+			if (argv[1][b] < 48 && argv[1][b] > 57)
 			{
 				printf("0\n");
 				return (0);
 			}
 		}
-
-		if (i == 3)
-		{
-			result = atoi(argv[1]) % 25;
-			result = result + atoi(argv[1]) / 25;
-		}
-		if (i == 2)
-		{
-			result = atoi(argv[1]) % 10;
-			if (c == 1)
-				result = result + atoi(argv[1]) / 10;
-		}
-
+		amount = atoi(argv[1]);
+		if (amount >= 50)
+			result = amount / coin1 + amount % coin1;
+		else if (amount > 10)
+			result = amount % coin2;
+		else if (amount == 10)
+			result = amount / coin2 + amount % coin2;
+		else if (amount >= 5)
+			result = amount / coin3 + amount % coin3;
+		else if (amount >= 2)
+			result = amount / coin4 + amount % coin4;
+		else if (amount >= 1)
+			result = amount / coin4 + amount % coin5;
 	}
 	printf("%d\n", result);
 	return (result);
