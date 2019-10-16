@@ -30,6 +30,6 @@ char *str_concat(char *s1, char *s2)
 		p[c] = s1[c];
 	for (d = 0; d < b; d++)
 		p[c + d] = s2[d];
-	p[(i + b) + 1] = '\0';
+	p[(c + d) + 1] = '\0';
 	return (p);
 }
