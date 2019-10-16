@@ -13,10 +13,13 @@ char *_strdup(char *str)
 	unsigned int i = 0, b = 0;
 	char *p;
 
+	if(str == NULL)
+		return (NULL);
+
 	while (str[i])
 		i++;
 	p = malloc(i * sizeof(char));
-	if (str == NULL)
+	if (p == NULL)
 		return (NULL);
 	for (b = 0; b < i; b++)
 		p[b] = str[b];
