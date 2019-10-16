@@ -32,26 +32,30 @@ char **strtow(char *str)
 	}
 
 	i = 0;
+	c = 0;
 	for (j = 0; j < words; j++)
 	{
-		for(b = 0; str[i] != ' ' && str[i + 1] == ' ' && str[i] != '\0'; i++)
+		b = 0, r = 0;
+		for (; str[i] == ' '; i++)
+			;
+		for(; str[i] != ' '; i++)
 		{
 			b++;
 		}
-		p[j] = malloc((b + 2) * sizeof(char));
+		p[j] = malloc((b + 1) * sizeof(char));
 		if (p[j] == NULL)
 		{
 			for (; j >= 0; j--)
 				free(p[j]);
 			free(p);	
 		}
-		for (r = 0; str[c] != ' ' && str[i + 1] == ' ' && str[i] != '\0'; c++)
+		for (; str[c] == ' '; c++)
+			;
+		for (; str[c] != ' '; c++)
 		{
 			p[j][r] = str[c];
 			r++;
 		}
-		p[j][r + 1] = '\n';
-		p[j][r + 2] = '\0';
 	}
 	return (p);
 }
