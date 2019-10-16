@@ -6,6 +6,7 @@
 * split_word - function that count the number of words
 * @str: Getting a string
 * Return: Number of words founds in a string delimited by white space
+**/
 
 /** strtow - function that splits a string into words.
 * @str: Getting a string
