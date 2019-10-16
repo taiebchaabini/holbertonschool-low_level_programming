@@ -13,15 +13,16 @@ char *str_concat(char *s1, char *s2)
 	unsigned int i = 0, b = 0, c = 0, d = 0;
 	char *p;
 
-	if (s1 == NULL)
-		s1[0] = ' ';
-	if (s2 == NULL)
-		s2[0] = ' ';
-
-	while (s1[i] != '\0')
-		i++;
-	while (s2[b] != '\0')
-		b++;
+	if (s1 != NULL)
+	{
+		while (s1[i] != '\0')
+			i++;
+	}
+	if (s2 != NULL)
+	{
+		while (s2[b] != '\0')
+			b++;
+	}
 
 	p = malloc(((i + 1) + (b + 1)) * sizeof(char));
 	if (p == NULL)
@@ -34,5 +35,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		p[c + d] = s2[d];
 	}
+	p[(i + b) + 1] = '\0';
 	return (p);
 }
