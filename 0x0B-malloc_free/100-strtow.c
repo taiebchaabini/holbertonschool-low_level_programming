@@ -8,12 +8,6 @@
 * Return: Number of words founds in a string delimited by white space
 **/
 
-/** strtow - function that splits a string into words.
-* @str: Getting a string
-* @Return: Array of words, without white space
-**/
-
-
 int split_word(char *str)
 {
 	int i = 0, words = 0;
@@ -27,7 +21,11 @@ int split_word(char *str)
 	return (words);
 }
 
-
+/**
+* strtow - function that splites a string into words.
+* @str: Getting a string
+* Return: Array of words, without white space
+**/
 char **strtow(char *str)
 {
 	int i = 0, j = 0, b = 0, c = 0, r = 0;
@@ -37,7 +35,7 @@ char **strtow(char *str)
 	if (str == NULL)
 		return (NULL);
 	words = split_word(str);
-	p = malloc(words * sizeof(char *));
+	p = malloc(1 + words * sizeof(char *));
 	if (p == NULL)
 	{
 		return (NULL);
@@ -61,7 +59,7 @@ char **strtow(char *str)
 		}
 		for (; str[c] == ' '; c++)
 			;
-		for (; str[c] != ' '; c++)
+		for (; str[c] != ' ' && r <= b; c++)
 		{
 			p[j][r] = str[c];
 			r++;
