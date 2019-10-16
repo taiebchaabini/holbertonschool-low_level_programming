@@ -10,7 +10,7 @@
 
 char *_strdup(char *str)
 {
-	unsigned int i = 0, b = 0;
+	unsigned int i = 1, b = 0;
 	char *p;
 
 	if (str == NULL)
@@ -22,5 +22,6 @@ char *_strdup(char *str)
 		return (NULL);
 	for (b = 0; b < i; b++)
 		p[b] = str[b];
+	p[b + 1] = '\0';
 	return (p);
 }
