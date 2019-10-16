@@ -22,9 +22,17 @@ char *str_concat(char *s1, char *s2)
 	if (p == NULL)
 		return (NULL);
 	for (c = 0; c < i; c++)
+	{
+		if (s1[c] == NULL)
+			s1[c] = ' ';
 		p[c] = s1[c];
+	}
 	for (d = 0; d < i + b; d++)
+	{
+		if (s2[d] == NULL)
+			s2[d] = ' ';
 		p[c + d] = s2[d];
+	}
 	p[(d + c) + 1] = '\0';
 	return (p);
 }
