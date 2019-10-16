@@ -14,16 +14,21 @@ char *str_concat(char *s1, char *s2)
 	char *p;
 
 	if (s1 != NULL)
-		for (i = 0; s1[i] != '\0'; i++);
+	{
+		for (i = 0; s1[i] != '\0'; i++)
+			;
+	}
 	if (s2 != NULL)
-		for (b = 0; s2[b] != '\0'; b++);
-
+	{
+		for (b = 0; s2[b] != '\0'; b++)
+			;
+	}
 	p = malloc(((i + 1) + (b + 1)) * sizeof(char));
 	if (p == NULL)
 		return (NULL);
 	for (c = 0; c < i; c++)
 		p[c] = s1[c];
-	for (d = 0; d < i + b; d++)
+	for (d = 0; d < b; d++)
 		p[c + d] = s2[d];
 	p[(i + b) + 1] = '\0';
 	return (p);
