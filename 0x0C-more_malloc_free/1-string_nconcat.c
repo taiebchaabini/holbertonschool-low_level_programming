@@ -21,9 +21,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (s2[b] != '\0' || b < n)
 		b++;
 	}
-	p = malloc(i + n * sizeof(char));
+	p = malloc(i + b + 1 * sizeof(char));
 	if (p == NULL)
+	{
+		free(p);
 		return (NULL);
+	}
 	for (d = 0; d < i; d++)
 	{
 		p[d] = s1[c];
