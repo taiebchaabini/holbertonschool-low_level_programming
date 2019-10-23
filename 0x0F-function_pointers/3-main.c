@@ -6,7 +6,7 @@
 * main -  program that performs simple operations.
 * @argc: number of argc
 * @argv: arguments passed
-* Return: return 99 if no arg passed otherwise if success 0
+* Return: if success 0
 **/
 int main(int argc, char *argv[])
 {
@@ -17,12 +17,12 @@ int main(int argc, char *argv[])
 	if (argc > 4 || argc < 4)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 	if ((arg == '/' && atoi(argv[3]) == 0) || (arg == '%' && atoi(argv[3]) == 0))
 	{
 		printf("Error\n");
-		return (100);
+		exit(100);
 	}
 	if (arg == '+' || arg == '-' || arg == '*' || arg == '/' || arg == '%')
 	{
@@ -30,8 +30,8 @@ int main(int argc, char *argv[])
 		b = atoi(argv[3]);
 		dcop = get_op_func(argv[2]);
 		printf("%d\n", dcop(a, b));
-		return (0);
+		return(0);
 	}
 	printf("Error\n");
-	return (99);
+	exit(99);
 }
