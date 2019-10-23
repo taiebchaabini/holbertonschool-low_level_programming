@@ -19,15 +19,15 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (98);
 	}
+	if ((arg == '/' && atoi(argv[3]) == 0) || (arg == '%' && atoi(argv[3]) == 0))
+	{
+		printf("Error\n");
+		return (100);
+	}
 	if (arg == '+' || arg == '-' || arg == '*' || arg == '/' || arg == '%')
 	{
 		a = atoi(argv[1]);
 		b = atoi(argv[3]);
-		if ((arg == '/' && b == 0) || (arg == '%' && b == 0))
-		{
-			printf("Error\n");
-			return (100);
-		}
 		dcop = get_op_func(argv[2]);
 		printf("%d\n", dcop(a, b));
 		return (0);
