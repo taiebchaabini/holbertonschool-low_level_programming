@@ -25,15 +25,15 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
-	if (arg == '+' || arg == '-' || arg == '*' || arg == '/' || arg == '%')
+	dcop = get_op_func(argv[2]);
+	if(dcop == NULL)
 	{
-		a = atoi(argv[1]);
-		b = atoi(argv[3]);
-		dcop = get_op_func(argv[2]);
-		result = dcop(a, b);
-		printf("%d\n", result);
-		return(0);
+		printf("Error\n");
+		exit(99);
 	}
-	printf("Error\n");
-	exit(99);
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+	result = dcop(a, b);
+	printf("%d\n", result);
+	return (0);
 }
