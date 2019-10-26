@@ -36,11 +36,6 @@ void _prints(va_list list)
 	char *p;
 
 	p = va_arg(list, char*);
-	if (p == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
 	printf("%s", p);
 }
 /**
