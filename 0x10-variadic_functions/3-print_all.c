@@ -20,7 +20,7 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(list, format);
-	while (format[i])
+	while (format && format[i])
 	{
 		b = 0;
 		while (t[b].c != NULL)
