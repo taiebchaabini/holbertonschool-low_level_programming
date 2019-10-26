@@ -6,7 +6,6 @@
 * _printc - function that print a char
 * @list: take the list
 **/
-
 void _printc(va_list list)
 {
 	printf("%c", va_arg(list, int));
@@ -36,6 +35,11 @@ void _prints(va_list list)
 	char *p;
 
 	p = va_arg(list, char*);
+	if (p == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
 	printf("%s", p);
 }
 /**
