@@ -1,5 +1,6 @@
 #ifndef myfunctions
 #define myfunctions
+#include <stdarg.h>
 /**
 * _printc - function that print a char
 * @list: take the list
