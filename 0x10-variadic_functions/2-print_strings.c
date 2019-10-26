@@ -13,13 +13,12 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list list;
 	char *p;
 
-	if (n > 0)
-	{
-	va_start(list, n);
+	if (n != 0)
+		va_start(list, n);
 	for (i = 0; i < n; i++)
 	{
 		p = va_arg(list, char*);
-		if (!p[0])
+		if (p[0] == '\0')
 			printf("(nil)");
 		else
 			printf("%s", p);
@@ -28,5 +27,4 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	}
 	printf("\n");
 	va_end(list);
-	}
 }
