@@ -1,7 +1,4 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <string.h>
 /**
 * _printc - function that print a char
 * @list: take the list
