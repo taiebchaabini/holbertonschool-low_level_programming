@@ -6,7 +6,7 @@
  **/
 void print_all(const char * const format, ...)
 {
-	int i = 0, b = 0;
+	unsigned int i = 0, b = 0;
 	void (*fp)(va_list);
 	va_list list;
 	char *sep = "";
