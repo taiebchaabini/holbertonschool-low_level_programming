@@ -1,5 +1,6 @@
 #ifndef variadich
 #define variadich
+#include <stdarg.h>
 /**
 * struct ts - structure for checking type of arguments
 * @c: Checking the char for type checking
