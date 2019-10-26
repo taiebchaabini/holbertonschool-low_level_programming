@@ -9,6 +9,7 @@ void print_all(const char * const format, ...)
 	int i = 0, b = 0;
 	void (*fp)(va_list);
 	va_list list;
+	char *sep = "";
 
 	type t[] = {
 		{"c", _printc},
@@ -26,10 +27,10 @@ void print_all(const char * const format, ...)
 		{
 			if (t[b].c[0] == format[i])
 			{
+				printf("%s", sep);
 				fp = t[b].f;
 				fp(list);
-				if (format[i + 1])
-					printf(", ");
+				sep = ", ";
 
 			}
 			b++;
@@ -37,6 +38,6 @@ void print_all(const char * const format, ...)
 		i++;
 
 	}
-	printf("\n");
 	va_end(list);
+	printf("\n");
 }
