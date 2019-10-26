@@ -2,6 +2,7 @@
 #define variadich
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 /**
 * struct ts - structure for checking type of arguments
 * @c: Checking the char for type checking
@@ -9,7 +10,7 @@
 **/
 typedef struct ts
 {
-	char c;
+	char *c;
 	void (*f)(va_list);
 } type;
 int sum_them_all(const unsigned int n, ...);
