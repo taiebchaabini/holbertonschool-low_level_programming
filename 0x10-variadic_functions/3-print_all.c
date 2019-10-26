@@ -50,23 +50,24 @@ void print_all(const char * const format, ...)
 	void (*fp)(va_list);
 
 	type t[] = {
-		{'c', _printc},
-		{'i', _printi},
-		{'f', _printf},
-		{'s', _prints}
+		{"c", _printc},
+		{"i", _printi},
+		{"f", _printf},
+		{"s", _prints},
+		{NULL, NULL}
 	};
 
 	va_start(list, format);
 	while (format[i] != '\0')
 	{
 		b = 0;
-		while (b < 4)
+		while (t[b].c != NULL)
 		{
-			if (t[b].c == format[i])
+			if (t[b].c[0] == format[i])
 			{
 				fp = t[b].f;
 				fp(list);
-				if (format[i + 1] != '\0')
+				if (format[i + 1])
 					printf(", ");
 
 			}
