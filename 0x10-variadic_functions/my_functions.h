@@ -33,11 +33,11 @@ void _prints(va_list list)
 	char *p;
 
 	p = va_arg(list, char*);
-	if (p == NULL)
+	if (p[0] != '\0')
 	{
-		printf("(nil)");
+		printf("%s", p);
 		return;
 	}
-	printf("%s", p);
+		printf("(nil)");
 }
 #endif
