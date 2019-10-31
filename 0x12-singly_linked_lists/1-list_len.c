@@ -1,4 +1,7 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
 /**
 * list_len -  function that returns the number of elements in a linked list_t list.
 * @h: take a list of struct node
@@ -10,9 +13,9 @@ size_t list_len(const list_t *h)
 	size_t count = 0;
 
 	tmp = h;
-	if (h == '\0')
+	if (h == 0)
 		return (0);
-	while (tmp)
+	while (tmp != 0)
 	{
 		count++;
 		tmp = tmp->next;
