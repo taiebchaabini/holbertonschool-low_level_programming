@@ -7,7 +7,7 @@
 size_t list_len(const list_t *h)
 {
 	const list_t *tmp;
-	unsigned int count = 0;
+	unsigned long count = 0;
 
 	tmp = NULL;
 	tmp = h;
