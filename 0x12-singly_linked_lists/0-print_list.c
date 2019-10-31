@@ -1,7 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
 /**
 * print_list : function that prints all the elements of a list_t list.
 * list_t h - r
@@ -9,14 +6,17 @@
 **/
 size_t print_list(const list_t *h)
 {
-	list_t* h;
+
+	list_t* tmp;
 	unsigned int count = 0;
 
+	tmp = NULL;
+	tmp = malloc(sizeof(list_t));
 	tmp = h;
 	while (tmp->next != NULL)
 	{
-		tmp = tmp->link;
-		printf("[%u] %s", h->len, h->str);
+		tmp = tmp->next;
+		printf("[%u] %s", tmp->len, tmp->str);
 		count++;
 	}
 	return (count);
