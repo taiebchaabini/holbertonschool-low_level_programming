@@ -1,5 +1,7 @@
-#ifndef lists_h
-#define lists_h
+#ifndef h_lists
+#define h_lists
+
+#include <string.h>
 size_t print_list(const list_t *h);
 /**
  * struct list_s - singly linked list
