@@ -7,12 +7,12 @@
 size_t list_len(const list_t *h)
 {
 	const list_t *tmp;
-	unsigned long count = 0;
+	size_t count = 0;
 
 	tmp = NULL;
 	tmp = h;
 
-	if (tmp == NULL)
+	if (tmp->next == NULL)
 		return (count + 1);
 	while (tmp)
 	{
