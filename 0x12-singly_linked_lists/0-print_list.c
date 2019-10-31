@@ -7,17 +7,16 @@
 size_t print_list(const list_t *h)
 {
 
-	list_t* tmp;
+	const list_t* tmp;
 	unsigned int count = 0;
 
 	tmp = NULL;
-	tmp = malloc(sizeof(list_t));
 	tmp = h;
 	while (tmp->next != NULL)
 	{
-		tmp = tmp->next;
 		printf("[%u] %s", tmp->len, tmp->str);
 		count++;
+		tmp = tmp->next;
 	}
 	return (count);
 }
