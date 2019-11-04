@@ -1,6 +1,6 @@
 /**
 * print_listint - function that prints all the elements of a listint_t list.
-* h - take a list type of listint_t 
+* @h: take a list type of listint_t
 * Return: number of elements of @h list
 **/
 #include "lists.h"

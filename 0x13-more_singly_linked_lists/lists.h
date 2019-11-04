@@ -1,7 +1,7 @@
 #ifndef tc_list_h
 #define tc_list_h
 #include <stdio.h>
-/** 
+/**
  * struct listint_s - singly linked list
  * @n: integer
  * @next: points to the next node
