@@ -1,8 +1,9 @@
 /**
-* add_nodeint - function that adds a new node at the 
-* beginning of a listint_t list. 
-* @h: take a list type of listint_t
-* Return: number of elements of @h list
+* add_nodeint - function that adds a new node at the
+* beginning of a listint_t list.
+* @head: pointer of list type of listint_t
+* @n: value of the new element to insert
+* Return: address of the new element or, NULL if it fail
 **/
 #include "lists.h"
 #include <stdio.h>
