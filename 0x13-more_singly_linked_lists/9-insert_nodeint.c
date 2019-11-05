@@ -35,20 +35,18 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	{
 		if (count == idx - 1)
 		{
-			if (!(h))
-			{
-				free(new);
-				return (NULL);
-			}
-			else
-			{
-				tmp = h->next;
-				new->next = tmp;
-				h->next = new;
-			}
+			tmp = h->next;
+			new->next = tmp;
+			h->next = new;
+			return (new);
 		}
 		h = h->next;
 		count++;
+		if (!(h))
+		{
+			free(new);
+			return (NULL);
+		}
 	}
 	return (new);
 }
