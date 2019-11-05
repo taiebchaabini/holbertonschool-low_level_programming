@@ -11,23 +11,23 @@
 #include <stdlib.h>
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *new = NULL, *h = NULL, *tmp = NULL;
+	listint_t *new = NULL, *h = *head, *tmp = NULL;
 	unsigned int count = 0;
 
-	if (!head)
-		return (NULL);
 	new = malloc(sizeof(listint_t));
-	if (!new)
+	if (!new || !head)
 		return (NULL);
 	new->n = n;
-	h = *head;
 	if (!(*head) && idx != 0)
 	{
 		free(new);
 		return (NULL);
 	}
 	if (!(*head) && idx == 0)
+	{
 		(*head) = new;
+		return (new);
+	}
 	while (h)
 	{
 		if (count == idx && idx == 0)
@@ -36,7 +36,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			new->next = tmp;
 			(*head) = new;
 		}
-		if (count == idx - 1)
+		else if (count == idx - 1)
 		{
 			tmp = h->next;
 			new->next = tmp;
