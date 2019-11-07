@@ -3,7 +3,7 @@
  * print_binary - function that prints the binary representation of a number.
  * @n: take a decimal number as argument
  **/
-void print_binary(unsigned long int n);
+void print_binary(unsigned long int n)
 {
 	if (n != 0)
 		rest(n >> 1);
