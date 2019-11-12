@@ -17,8 +17,8 @@ int main(int ac, char **av)
 	}
 	buf = malloc(sizeof(char) * 1024);
 	if (buf == NULL)
-		return (-1);
-	fd = open(av[1], O_RDWR);
+		exit(-1);
+	fd = open(av[1], O_RDONLY);
 	i = read(fd, buf, 1024);
 	if (fd == -1 || i == -1)
 	{
