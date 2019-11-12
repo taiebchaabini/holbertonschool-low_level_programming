@@ -7,10 +7,8 @@
 **/
 int main(int ac, char **av)
 {
-	int fd = 0, i = 0;
-	int fd2 = 0, wstate = 0;
+	int fd = 0, i = 0, fd2 = 0, wstate = 0, FD_VALUE = 0;
 	char *buf;
-	int FD_VALUE = 0;
 
 	if (ac != 3)
 	{
@@ -29,7 +27,6 @@ int main(int ac, char **av)
 	}
 	fd2 = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	wstate = write(fd2, buf, i);
-	buf[i] = '\0';
 	if (fd2 == -1 || wstate == -1 || wstate != i)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
