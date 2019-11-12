@@ -44,11 +44,17 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	fd = open(av[1], O_RDONLY);
-	i = read(fd, buf, sizeof(buf));
-	if (i == -1 || fd == -1)
+	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
 		exit(98);
+	}
+	i = read(fd, buf, sizeof(buf));
+	if (i == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
+		exit(98);
+
 	}
 	c_file(av[2], buf);
 	cstate = close(fd);
