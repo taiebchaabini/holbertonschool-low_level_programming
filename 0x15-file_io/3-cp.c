@@ -3,13 +3,13 @@
 * main - program that copies the content of a file to another file.
 * @ac: number of arguments
 * @av: arguments of the program
-* Return: 0 if success otherwise it depends fn error
+* Return: 0 if success otherwise exit with ERROR CODE
 **/
 int main(int ac, char **av)
 {
 	int fd = 0, i = 0;
 	int fd2 = 0, wstate = 0;
-	char buf[1024];
+	char *buf;
 	int FD_VALUE = 0;
 
 	if (ac != 3)
@@ -17,6 +17,7 @@ int main(int ac, char **av)
 		write(STDERR_FILENO, "Usage: cp file_from file_to\n", 28);
 		exit(97);
 	}
+	buf = malloc(sizeof(char) * 1024);
 	fd = open(av[1], O_RDONLY);
 	i = read(fd, buf, 1024);
 	if (fd == -1 || i == -1)
@@ -24,7 +25,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
 		exit(98);
 	}
-	fd2 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd2 = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	wstate = write(fd2, buf, i);
 	buf[i] = '\0';
 	if (fd2 == -1 || wstate == -1)
@@ -47,3 +48,4 @@ int main(int ac, char **av)
 	}
 	return (0);
 }
+
