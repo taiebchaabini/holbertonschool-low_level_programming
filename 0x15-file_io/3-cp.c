@@ -29,13 +29,17 @@ void c_file(char *file1, char *file2)
 		}
 	}
 	cstate = close(fd);
-	cstate2 = close(fd2);
-	if (cstate == -1 || cstate2 == -1)
+	if (cstate == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", -1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cstate);
 		exit(100);
 	}
-
+	cstate2 = close(fd2);
+	if (cstate2 == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cstate2);
+		exit(100);
+	}
 }
 /**
  * main - program that copies the content of a file to another file.
