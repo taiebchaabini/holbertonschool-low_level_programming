@@ -18,6 +18,8 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	buf = malloc(sizeof(char) * 1024);
+	if (buf == NULL)
+		return (-1);
 	fd = open(av[1], O_RDONLY);
 	i = read(fd, buf, 1024);
 	if (fd == -1 || i == -1)
@@ -28,7 +30,7 @@ int main(int ac, char **av)
 	fd2 = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	wstate = write(fd2, buf, i);
 	buf[i] = '\0';
-	if (fd2 == -1 || wstate == -1)
+	if (fd2 == -1 || wstate == -1 || wstate != i)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
