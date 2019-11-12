@@ -3,9 +3,8 @@
 /**
 * c_file - write the content passed to text_content in the new file
 * or existing file
-* @filename: filename where we are supposed to write the content
+* @filename: filename is where we are supposed to write the content
 * @text_content: the content that should be copied to the new or existing file
-* Return: 0 if success otherwise exist with ERROR CODE
 **/
 void c_file(char *filename, char *text_content)
 {
