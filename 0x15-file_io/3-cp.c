@@ -19,11 +19,6 @@ void c_file(char *file1, char *file2)
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file1);
 		exit(98);
 	}
-	if (fd2 == -1)
-	{
-		dprintf(STDERR_FILENO, "error: can't write to %s\n", file2);
-		exit(99);
-	}
 	while ((i = read(fd, &buf, 1024)) != 0)
 	{
 		wstate = write(fd2, &buf, i);
@@ -33,8 +28,8 @@ void c_file(char *file1, char *file2)
 			exit(99);
 		}
 	}
-
 	cstate = close(fd);
+	cstate2 = close(fd2);
 	if (cstate == -1 || cstate2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", -1);
