@@ -23,7 +23,6 @@ int c_file(char *filename, char *text_content)
 	}
 	printf("WSTATE OF WRITE : %d\n", wstate);
 	cstate = close(fd);
-	cstate = -1;
 	if (cstate == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cstate);
