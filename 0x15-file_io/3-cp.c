@@ -12,19 +12,19 @@ void c_file(char *file1, char *file2)
 	char buf[1024];
 
 	fd = open(file1, O_RDONLY);
-	fd2 = open(file2, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
-			| S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file1);
 		exit(98);
 	}
+	fd2 = open(file2, O_RDRW | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
+			| S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
 		exit(99);
 	}
-	while ((i = read(fd, &buf, 1024)) != 0)
+	while ((i = read(fd, &buf, 1024)) > 0)
 	{
 		wstate = write(fd2, &buf, i);
 		if (wstate == -1)
