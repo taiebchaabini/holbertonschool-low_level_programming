@@ -18,7 +18,7 @@ int main(int ac, char **av)
 	buf = malloc(sizeof(char) * 1024);
 	if (buf == NULL)
 		return (-1);
-	fd = open(av[1], O_RDONLY);
+	fd = open(av[1], O_RDWR);
 	i = read(fd, buf, 1024);
 	if (fd == -1 || i == -1)
 	{
@@ -32,17 +32,16 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-
 	FD_VALUE = close(fd);
 	if (FD_VALUE == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", FD_VALUE);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", FD_VALUE);
 		exit(100);
 	}
 	FD_VALUE = close(fd2);
 	if (FD_VALUE == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", FD_VALUE);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", FD_VALUE);
 		exit(100);
 	}
 	return (0);
