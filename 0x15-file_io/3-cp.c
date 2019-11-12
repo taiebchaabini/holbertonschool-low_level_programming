@@ -11,12 +11,17 @@ int c_file(char *filename, char *text_content)
 {
 	int i = 0, fd = 0, wstate = 0, cstate = 0;
 
-	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
 			| S_IRGRP | S_IWGRP | S_IROTH);
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+		exit(99);
+	}
 	while (text_content[i] != '\0')
 		i++;
 	wstate = write(fd, text_content, i);
-	if (text_content == NULL || fd == -1 || wstate == -1 || wstate != i)
+	if (wstate == -1 || wstate != i)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
@@ -38,18 +43,15 @@ int c_file(char *filename, char *text_content)
 int main(int ac, char **av)
 {
 	int fd = 0, i = 0, cstate = 0;
-	char *buf;
+	char buf[1024];
 
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	buf = malloc(sizeof(char) * 1024);
-	if (buf == NULL)
-		exit(0);
 	fd = open(av[1], O_RDONLY);
-	i = read(fd, buf, 1024);
+	i = read(fd, buf, sizeof(buf));
 	if (i == -1 || fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
