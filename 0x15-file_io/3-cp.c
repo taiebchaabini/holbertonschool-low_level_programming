@@ -26,6 +26,7 @@ int main(int ac, char **av)
 	}
 	fd2 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	wstate = write(fd2, buf, i);
+	buf[i] = '\0';
 	if (fd2 == -1 || wstate == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
@@ -33,6 +34,12 @@ int main(int ac, char **av)
 	}
 
 	FD_VALUE = close(fd);
+	if (FD_VALUE == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", FD_VALUE);
+		exit(100);
+	}
+	FD_VALUE = close(fd2);
 	if (FD_VALUE == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", FD_VALUE);
