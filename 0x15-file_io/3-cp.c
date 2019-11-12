@@ -17,7 +17,7 @@ void c_file(char *file1, char *file2)
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file1);
 		exit(98);
 	}
-	fd2 = open(file2, O_RDRW | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
+	fd2 = open(file2, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
 			| S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd2 == -1)
 	{
