@@ -19,17 +19,16 @@ int main(int ac, char **av)
 	if (buf == NULL)
 		exit(-1);
 	fd = open(av[1], O_RDONLY);
-	i = read(fd, buf, 1024);
-	if (fd == -1 || i == -1)
+	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
 		exit(98);
 	}
-	FD_VALUE = close(fd);
-	if (FD_VALUE == -1)
+	i = read(fd, buf, 1024);
+	if (i == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", FD_VALUE);
-		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
+		exit(98);
 	}
 	fd2 = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	wstate = write(fd2, buf, i);
@@ -38,7 +37,8 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-	FD_VALUE = close(fd2);
+	FD_VALUE = close(fd);
+	close(fd2);
 	if (FD_VALUE == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", FD_VALUE);
