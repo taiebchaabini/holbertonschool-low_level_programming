@@ -33,6 +33,11 @@ void c_file(char *file1, char *file2)
 			exit(99);
 		}
 	}
+	if (i == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file1);
+		exit(98);
+	}
 	cstate = close(fd);
 	if (cstate == -1)
 	{
