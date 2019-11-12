@@ -1,31 +1,41 @@
 #include "holberton.h"
 
 /**
-* c_file - write the content passed to text_content in the new file
+* c_file - copy the content from file 1 to new file2
 * or existing file
-* @filename: filename is where we are supposed to write the content
-* @text_content: the content that should be copied to the new or existing file
+* @file1: src file
+* @file2: dest file
 **/
-void c_file(char *filename, char *text_content)
+void c_file(char *file1, char *fil2)
 {
-	int i = 0, fd = 0, wstate = 0, cstate = 0;
+	int i = 0, fd = 0, fd2 = 0, wstate = 0, cstate = 0, cstate2 = 0;
 
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
+
+	fd = open(file1, O_RDONLY);
+	fd2 = open(file2, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
 			| S_IRGRP | S_IWGRP | S_IROTH);
-	while (text_content[i] != '\0')
-		i++;
-	wstate = write(fd, text_content, i);
-	if (wstate == -1 || wstate != i || fd == -1)
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
+		exit(98);
+	}
+	while ((i = read(fd, &buf, 1024)) != 0)
+	{
+		wstate = write(fd2, &buf, 1024);
+	}
+	if (wstate == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
+
 	cstate = close(fd);
-	if (cstate == -1)
+	if (cstate == -1 || cstate2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cstate);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", -1);
 		exit(100);
 	}
+
 }
 /**
 * main - program that copies the content of a file to another file.
@@ -43,26 +53,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
-		exit(98);
-	}
-	i = read(fd, buf, sizeof(buf));
-	if (i == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
-		exit(98);
-
-	}
-	c_file(av[2], buf);
-	cstate = close(fd);
-	if (cstate == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cstate);
-		exit(100);
-	}
+	c_file(av[1], av[2]);
 	return (0);
 }
 
