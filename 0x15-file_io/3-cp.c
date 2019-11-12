@@ -21,14 +21,12 @@ int c_file(char *filename, char *text_content)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
-	printf("WSTATE OF WRITE : %d\n", wstate);
 	cstate = close(fd);
 	if (cstate == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cstate);
 		exit(100);
 	}
-	printf("WSTATE OF CLOSE WRITE : %d\n", cstate);
 	return (0);
 }
 /**
