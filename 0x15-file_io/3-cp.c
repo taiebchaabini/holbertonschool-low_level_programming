@@ -14,7 +14,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		write(STDERR_FILENO, "Usage: cp file_from file_to\n", 28);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	buf = malloc(sizeof(char) * 1024);
