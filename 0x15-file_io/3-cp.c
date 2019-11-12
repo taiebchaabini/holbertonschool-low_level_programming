@@ -6,27 +6,27 @@
 * @file1: src file
 * @file2: dest file
 **/
-void c_file(char *file1, char *fil2)
+void c_file(char *file1, char *file2)
 {
 	int i = 0, fd = 0, fd2 = 0, wstate = 0, cstate = 0, cstate2 = 0;
-
+	char buf[1024];
 
 	fd = open(file1, O_RDONLY);
 	fd2 = open(file2, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
 			| S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file1);
 		exit(98);
 	}
 	while ((i = read(fd, &buf, 1024)) != 0)
 	{
-		wstate = write(fd2, &buf, 1024);
-	}
-	if (wstate == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+		wstate = write(fd2, &buf, i);
+		if (wstate == -1)
+		{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
 		exit(99);
+		}
 	}
 
 	cstate = close(fd);
@@ -45,9 +45,6 @@ void c_file(char *file1, char *fil2)
 **/
 int main(int ac, char **av)
 {
-	int fd = 0, i = 0, cstate = 0;
-	char buf[1024];
-
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
