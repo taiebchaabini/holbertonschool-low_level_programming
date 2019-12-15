@@ -16,7 +16,6 @@ void hb_palindromes()
 		for (b = 0; b <= 99; b++)
 		{
 			printf("%d\n", a * b);
-			cmb = malloc(sizeof((a + '0') + (b + '0')));
 		}
 		printf("--------------\n");
 	}
