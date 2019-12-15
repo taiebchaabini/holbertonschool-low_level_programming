@@ -10,22 +10,13 @@ void hb_palindromes()
 	int res = 0, old = 0;
 	char *cmb = NULL;
 
-	for (a = 0; a <= 9; a++)
+	for (a = 0; a <= 99; a++)
 	{
 		printf("--------------\n");
-		for (b = 0; b <= 9; b++)
+		for (b = 0; b <= 99; b++)
 		{
-			printf("%d", a);
-			printf("%d\n", b);
+			printf("%d\n", a * b);
 			cmb = malloc(sizeof((a + '0') + (b + '0')));
-			cmb[0] = a + '0';
-			cmb[1] = b + '0';
-			res =  atoi(cmb);
-			printf("OLD IS : %d\n", old);
-			printf("RES IS : %d\n", res);
-			if (res != old || old == 0)
-				old = atoi(cmb);
-			printf("Comb is : %d\n", res * res);
 		}
 		printf("--------------\n");
 	}
