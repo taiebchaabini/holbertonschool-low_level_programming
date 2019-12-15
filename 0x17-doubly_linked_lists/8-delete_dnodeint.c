@@ -1,5 +1,23 @@
 #include "lists.h"
 /**
+ * delete_dnodeint_at_b - function that delete the first node of a dlistint_t
+ * @h: dlistint_t header pointer
+ * Return: 1 if success otherwise -1
+**/
+int delete_dnodeint_at_b(dlistint_t **h)
+{
+	dlistint_t *tmp = NULL;
+
+	if (!h)
+		return (1);
+	tmp = *h;
+	tmp->next->prev = NULL;
+	*h = tmp->next;
+	free(tmp);
+	return (1);
+}
+
+/**
  * delete_dnodeint_at_index - function that deletes the node at index index of
  * a dlistint_t linked list.
  * @head: dlistint_t header pointer to pointer
@@ -25,14 +43,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(tmp);
 		return (1);
 	}
-	if (index == 0)
-	{
-		old = tmp;
-		tmp->next->prev = NULL;
-		*head = tmp->next;
-		free(tmp);
+	if (index == 0 && delete_dnodeint_at_b(head) == 1)
 		return (1);
-	}
 	while (tmp->next)
 	{
 		if (i == index - 1 && index + 1 == len)
