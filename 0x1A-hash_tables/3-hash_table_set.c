@@ -28,7 +28,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new->value = dval;
 	new->next = NULL;
 
-	index = key_index((const unsigned char *)&key, ht->size);
+	index = key_index((const unsigned char *)key, ht->size);
 	if (head[index] == NULL)
 		head[index] = new;
 	else
