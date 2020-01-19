@@ -41,6 +41,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				if (strcmp(head[index]->key, new->key) == 0)
 				{
 					free(head[index]->value);
+					free(new->value);
+					free(new->key);
+					free(new);
 					head[index]->value = dval;
 					return (1);
 				}
