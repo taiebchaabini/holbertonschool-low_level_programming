@@ -11,7 +11,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t **head = ht->array;
-	hash_node_t **newh = ht->array;
+	hash_node_t *tmp = NULL;
 	hash_node_t *new = NULL;
 	char *dval = "";
 	unsigned long int index = 0;
@@ -34,19 +34,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		head[index] = new;
 	else
 	{
-		while (head[index])
-		{
-			if (strcmp(head[index]->key, key) == 0)
+			tmp = head[index];
+			while (head[index])
 			{
-				head[index]->value = dval;
-				return (1);
+				if (strcmp(head[index]->key, new->key) == 0)
+				{
+					head[index]->value = dval;
+					return (1);
+				}
+				head[index] = head[index]->next;
 			}
-			head[index] = head[index]->next;
-		}
-		new->next = newh[index];
-		newh[index] = new;
+			new->next = tmp;
+			head[index] = new;
 	}
-
-
 	return (1);
 }
