@@ -10,15 +10,16 @@
 **/
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t **head = ht->array;
+	hash_node_t **head = NULL;
 	hash_node_t *tmp = NULL;
 	hash_node_t *new = NULL;
 	char *dval = "";
 	unsigned long int index = 0;
 
-	if (strlen(key) == 0)
+	if (strlen(key) == 0 || ht->array == NULL)
 		return (0);
 
+	head = ht->array;
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
