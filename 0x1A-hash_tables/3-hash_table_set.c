@@ -30,7 +30,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new->value = dval;
 	new->next = NULL;
 
-	index = key_index((const unsigned char *)key, ht->size);
+	index = key_index((unsigned char *)new->key, ht->size);
 	if (head[index] == NULL)
 		head[index] = new;
 	else
@@ -40,6 +40,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			{
 				if (strcmp(head[index]->key, new->key) == 0)
 				{
+					free(head[index]->value);
 					head[index]->value = dval;
 					return (1);
 				}
