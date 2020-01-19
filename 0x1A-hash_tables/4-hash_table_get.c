@@ -13,7 +13,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int index;
 	char *value = NULL;
 
-	if ( !ht || !ht->array || !key || strlen(key) == 0)
+	if (!ht || !ht->array || !key || strlen(key) == 0)
 		return (NULL);
 
 	index = key_index((const unsigned char *)key, ht->size);
@@ -27,5 +27,6 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 			return (value);
 		ht->array[index] = ht->array[index]->next;
 	}
+	ht->array[index] = tmp;
 	return (NULL);
 }
