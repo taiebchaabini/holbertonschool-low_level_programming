@@ -1,6 +1,11 @@
 # 0x1C. C - Makefiles
 ## General
 ##### What are make, Makefiles
+###### Make
+In software development, Make is a build automation tool that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program. Though integrated development environments and language-specific compiler features can also be used to manage a build process, Make remains widely used, especially in Unix and Unix-like operating systems.
+
+Besides building programs, Make can be used to manage any project where some files must be updated automatically from others whenever the others change. 
+###### Makefiles 
 A makefile is a file (by default named "Makefile") containing a set of directives used by a make build automation tool to generate a target/goal. 
 ##### When, why and how to use Makefiles
 ##### What are rules and how to set and use them
