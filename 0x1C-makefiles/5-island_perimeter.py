@@ -39,8 +39,8 @@ def island_perimeter(grid):
                 lastx = x
                 lasty = y
                 if x == lastx and grid[y - 1][x] == 1 or grid[y + 1][x] == 1:
-                    width += 1
-                if y == lasty and grid[y][x - 1] == 1 or grid[y][x + 1] == 1:
                     height += 1
+                if y == lasty and grid[y][x - 1] == 1 or grid[y][x + 1] == 1:
+                    width += 1
     perimeter = (width + height) * 2
     return (perimeter)
