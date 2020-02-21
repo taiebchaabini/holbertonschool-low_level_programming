@@ -7,6 +7,10 @@ In software development, Make is a build automation tool that automatically buil
 Besides building programs, Make can be used to manage any project where some files must be updated automatically from others whenever the others change. 
 ###### Makefiles 
 A makefile is a file (by default named "Makefile") containing a set of directives used by a make build automation tool to generate a target/goal. 
+
+Most often, the makefile directs Make on how to compile and link a program. A makefile works upon the principle that files only need recreating if their dependencies are newer than the file being created/recreated. The makefile is recursively carried out (with dependency prepared before each target depending upon them) until everything has been updated (that requires updating) and the primary/ultimate target is complete. These instructions with their dependencies are specified in a makefile. If none of the files that are prerequisites have been changed since the last time the program was compiled, no actions take place. For large software projects, using Makefiles can substantially reduce build times if only a few source files have changed.
+
+Using C/C++ as an example, when a C/C++ source file is changed, it must be recompiled. If a header file has changed, each C/C++ source file that includes the header file must be recompiled to be safe. Each compilation produces an object file corresponding to the source file. Finally, if any source file has been recompiled, all the object files, whether newly made or saved from previous compilations, must be linked together to produce the new executable program.[1] 
 ##### When, why and how to use Makefiles
 ##### What are rules and how to set and use them
 ##### What are explicit and implicit rules
