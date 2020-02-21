@@ -48,7 +48,7 @@ def island_perimeter(grid):
                             and grid[y][x + 1] == 1:
                         positions.append(str(lasty) + ":" + str(lastx))
                         width += 1
-                except Exception as e:
-                    raise e
+                except:
+                    pass
     perimeter = (width + height) * 2
     return (perimeter)
