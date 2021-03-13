@@ -1,4 +1,6 @@
-C Programming Language, Linux Ubuntu 14.04:
+# C Programming Language
+
+## Linux Ubuntu 14.04:
 
 - Implement multiple sorting algorithms (Heap, Merge, Quick)
 - Build a replication of the printf() function
